@@ -5,6 +5,10 @@
  */
 package lab7_paulinaeuceda;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author euced
@@ -16,6 +20,20 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        adminUsuario l = new adminUsuario("./Usuario.cbm");
+        l.cargarArchivo();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getlistaUsuarios().toArray());
+        cb_artistas.setModel(modelo);
+
+        adminBanda ban = new adminBanda("./Banda.cbm");
+        ban.cargarArchivo();
+        DefaultComboBoxModel modelo1 = new DefaultComboBoxModel(ban.getListaBandas().toArray());
+        cb_sol.setModel(modelo1);
+
+        adminSolista sol = new adminSolista("./Solista.cbm");
+        sol.cargarArchivo();
+        DefaultComboBoxModel modelo2 = new DefaultComboBoxModel(sol.getListaSolista().toArray());
+        cb_ban.setModel(modelo2);
     }
 
     /**
@@ -27,12 +45,250 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_registrar = new javax.swing.JDialog();
+        tf_username = new javax.swing.JTextField();
+        tf_display = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pf_contrasena = new javax.swing.JPasswordField();
+        jb_crear = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jd_admin = new javax.swing.JDialog();
+        jButton4 = new javax.swing.JButton();
+        elim = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jd_tablaAdmin = new javax.swing.JDialog();
+        jd_eliminar = new javax.swing.JDialog();
+        jButton8 = new javax.swing.JButton();
+        cb_artistas = new javax.swing.JComboBox<>();
+        jd_elimSol = new javax.swing.JDialog();
+        jButton9 = new javax.swing.JButton();
+        cb_sol = new javax.swing.JComboBox<>();
+        jd_elimBan = new javax.swing.JDialog();
+        jButton10 = new javax.swing.JButton();
+        cb_ban = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         tf_userL = new javax.swing.JTextField();
         pf_contra = new javax.swing.JPasswordField();
         jb_login = new javax.swing.JButton();
         jb_ingresar = new javax.swing.JButton();
         lb_foto = new javax.swing.JLabel();
+
+        jd_registrar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jd_registrar.getContentPane().add(tf_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 150, 30));
+        jd_registrar.getContentPane().add(tf_display, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 150, 30));
+
+        jLabel2.setText("Nombre");
+        jd_registrar.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+
+        jLabel3.setText("Contraseña");
+        jd_registrar.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+
+        jLabel4.setText("Usuario");
+        jd_registrar.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        jd_registrar.getContentPane().add(pf_contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 150, 30));
+
+        jb_crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-up.png"))); // NOI18N
+        jb_crear.setText("Crear Solista");
+        jb_crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearMouseClicked(evt);
+            }
+        });
+        jd_registrar.getContentPane().add(jb_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 160, -1));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logout.png"))); // NOI18N
+        jButton2.setText("Regresar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jd_registrar.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 150, 40));
+
+        jButton1.setText("Crear Bandas");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jd_registrar.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 110, 40));
+
+        jButton3.setText("Crear Usuario");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jd_registrar.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 120, 40));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/papers.co-se68-blurry-background-sunrise-gradation-blur-40-wallpaper.jpg"))); // NOI18N
+        jd_registrar.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
+
+        jd_admin.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton4.setText("Ver Tabla");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
+
+        elim.setText("Eliminar usuarios");
+        elim.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                elimMouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(elim, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 130, -1));
+
+        jButton5.setText("Eliminar Solista");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 130, -1));
+
+        jButton6.setText("Eliminar Banda");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 130, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-blurry-background-1636594.jpg"))); // NOI18N
+        jd_admin.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 370));
+
+        javax.swing.GroupLayout jd_tablaAdminLayout = new javax.swing.GroupLayout(jd_tablaAdmin.getContentPane());
+        jd_tablaAdmin.getContentPane().setLayout(jd_tablaAdminLayout);
+        jd_tablaAdminLayout.setHorizontalGroup(
+            jd_tablaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_tablaAdminLayout.setVerticalGroup(
+            jd_tablaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jButton8.setText("Eliminar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        cb_artistas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_artistasItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
+        jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
+        jd_eliminarLayout.setHorizontalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarLayout.createSequentialGroup()
+                .addGroup(jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jButton8))
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(cb_artistas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(251, Short.MAX_VALUE))
+        );
+        jd_eliminarLayout.setVerticalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_eliminarLayout.createSequentialGroup()
+                .addContainerGap(116, Short.MAX_VALUE)
+                .addComponent(cb_artistas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(jButton8)
+                .addGap(95, 95, 95))
+        );
+
+        jButton9.setText("Eliminar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        cb_sol.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_solItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_elimSolLayout = new javax.swing.GroupLayout(jd_elimSol.getContentPane());
+        jd_elimSol.getContentPane().setLayout(jd_elimSolLayout);
+        jd_elimSolLayout.setHorizontalGroup(
+            jd_elimSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_elimSolLayout.createSequentialGroup()
+                .addGroup(jd_elimSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_elimSolLayout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jButton9))
+                    .addGroup(jd_elimSolLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(cb_sol, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+        jd_elimSolLayout.setVerticalGroup(
+            jd_elimSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_elimSolLayout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addComponent(cb_sol, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(jButton9)
+                .addGap(95, 95, 95))
+        );
+
+        jButton10.setText("Eliminar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        cb_ban.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_banItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_elimBanLayout = new javax.swing.GroupLayout(jd_elimBan.getContentPane());
+        jd_elimBan.getContentPane().setLayout(jd_elimBanLayout);
+        jd_elimBanLayout.setHorizontalGroup(
+            jd_elimBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_elimBanLayout.createSequentialGroup()
+                .addGroup(jd_elimBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_elimBanLayout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(cb_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_elimBanLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jButton10)))
+                .addContainerGap(145, Short.MAX_VALUE))
+        );
+        jd_elimBanLayout.setVerticalGroup(
+            jd_elimBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_elimBanLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(cb_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(jButton10)
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,35 +324,65 @@ public class Main extends javax.swing.JFrame {
 
     private void jb_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_loginMouseClicked
         // TODO add your handling code here:
+        boolean flag = true;
+        while (flag) {
+            adminBanda ban = new adminBanda("./Banda.cbm");
+            ban.cargarArchivo();
+            ArrayList band = ban.getListaBandas();
 
-        administrarContactos ap = new administrarContactos("./Users.txt");
-        ap.cargarArchivo();
+            adminSolista sol = new adminSolista("./Solista.cbm");
+            sol.cargarArchivo();
+            ArrayList soli = sol.getListaSolista();
 
-        ArrayList o = ap.getListaContactos();
+            adminUsuario us = new adminUsuario("./Usuario.cbm");
+            us.cargarArchivo();
+            ArrayList usu = us.getlistaUsuarios();
 
-        DefaultListModel modelo = new DefaultListModel();
+            for (int i = 0; i < band.size(); i++) {
+                if (((Banda) band.get(i)).getUsuario().equals(tf_userL.getText()) && ((Banda) band.get(i)).getContrasena().equals(pf_contra.getText())) {
+                    JOptionPane.showMessageDialog(null, "Se inició sesión con éxito");
+//                jd_chat.pack();
+//                jd_chat.setModal(true);
+//                jd_chat.setLocationRelativeTo(this);
+//                jd_chat.setVisible(true);
+                    flag = false;
+                    break;
+                }
+            }
 
-        System.out.println(o);
+            for (int i = 0; i < soli.size(); i++) {
+                if (((Solista) soli.get(i)).getUsuario().equals(tf_userL.getText()) && ((Solista) soli.get(i)).getContrasena().equals(pf_contra.getText())) {
+                    JOptionPane.showMessageDialog(null, "Se inició sesión con éxito");
+//                jd_chat.pack();
+//                jd_chat.setModal(true);
+//                jd_chat.setLocationRelativeTo(this);
+//                jd_chat.setVisible(true);
+                    flag = false;
+                    break;
+                }
+            }
+            for (int i = 0; i < usu.size(); i++) {
+                if (((Usuario) usu.get(i)).getUsuario().equals(tf_userL.getText()) && ((Usuario) usu.get(i)).getContrasena().equals(pf_contra.getText())) {
+                    JOptionPane.showMessageDialog(null, "Se inició sesión con éxito");
+//                jd_chat.pack();
+//                jd_chat.setModal(true);
+//                jd_chat.setLocationRelativeTo(this);
+//                jd_chat.setVisible(true);
+                    flag = false;
+                    break;
+                }
+            }
 
-        for (int i = 0; i < o.size(); i++) {
-            modelo.addElement(o.get(i));
-        }
-
-        jl_contactos.setModel(modelo);
-
-        for (int i = 0; i < o.size(); i++) {
-            if (((Contactos) o.get(i)).getDisplay().equals(tf_userL.getText()) && ((Contactos) o.get(i)).getContrasena().equals(pf_contra.getText())) {
-                JOptionPane.showMessageDialog(null, "Se inició sesión con éxito");
-                nombre = tf_userL.getText();
-                ta_maquina.setText(nombre + ": ");
-                jd_chat.pack();
-                jd_chat.setModal(true);
-                jd_chat.setLocationRelativeTo(this);
-                jd_chat.setVisible(true);
-
+            if (admin.equals(tf_userL.getText()) && admincon.equals(pf_contra.getText())) {
+                jd_admin.pack();
+                jd_admin.setModal(true);
+                jd_admin.setLocationRelativeTo(this);
+                jd_admin.setVisible(true);
                 break;
             }
+
         }
+
         tf_userL.setText("");
         pf_contra.setText("");
     }//GEN-LAST:event_jb_loginMouseClicked
@@ -110,6 +396,177 @@ public class Main extends javax.swing.JFrame {
         jd_registrar.setVisible(true);
 
     }//GEN-LAST:event_jb_ingresarMouseClicked
+
+    private void jb_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMouseClicked
+        String ed = JOptionPane.showInputDialog("Ingrese la edad");
+        edad = Integer.parseInt(ed);
+        genero = JOptionPane.showInputDialog("Ingrese el genero musical");
+
+        adminSolista l = new adminSolista("./Solista.cbm");
+
+        Solista solista = new Solista(genero, edad, tf_display.getText(), pf_contrasena.getText(), tf_username.getText());
+
+        l.cargarArchivo();
+        l.setSolista(solista);
+        l.escribirArchivo();
+
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getListaSolista().toArray());
+        cb_ban.setModel(modelo);
+
+        JOptionPane.showMessageDialog(null, "Solista creado con exito");
+
+        tf_username.setText("");
+        pf_contrasena.setText("");
+        tf_display.setText("");
+
+
+    }//GEN-LAST:event_jb_crearMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        jd_registrar.pack();
+        jd_registrar.setModal(false);
+        jd_registrar.setLocationRelativeTo(this);
+        jd_registrar.setVisible(false);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        String inte = JOptionPane.showInputDialog("Ingrese el numero de integrantes");
+        integrantes = Integer.parseInt(inte);
+        genero = JOptionPane.showInputDialog("Ingrese el genero musical");
+
+        adminBanda l = new adminBanda("./Banda.cbm");
+
+        Banda banda = new Banda(genero, integrantes, tf_display.getText(), pf_contrasena.getText(), tf_username.getText());
+
+        l.cargarArchivo();
+        l.setBanda(banda);
+        l.escribirArchivo();
+
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getListaBandas().toArray());
+        cb_sol.setModel(modelo);
+
+        JOptionPane.showMessageDialog(null, "Banda creado con exito");
+
+        tf_username.setText("");
+        pf_contrasena.setText("");
+        tf_display.setText("");
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        String ed = JOptionPane.showInputDialog("Ingrese la edad");
+        edad = Integer.parseInt(ed);
+
+        adminUsuario l = new adminUsuario("./Usuario.cbm");
+
+        Usuario usuario = new Usuario(edad, tf_display.getText(), pf_contrasena.getText(), tf_username.getText());
+
+        l.cargarArchivo();
+        l.setUsuario(usuario);
+        l.escribirArchivo();
+
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getlistaUsuarios().toArray());
+        cb_artistas.setModel(modelo);
+
+        JOptionPane.showMessageDialog(null, "Usuario creado con exito");
+
+        tf_username.setText("");
+        pf_contrasena.setText("");
+        tf_display.setText("");
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void elimMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elimMouseClicked
+        // TODO add your handling code here:
+        jd_eliminar.pack();
+        jd_eliminar.setModal(true);
+        jd_eliminar.setLocationRelativeTo(this);
+        jd_eliminar.setVisible(true);
+    }//GEN-LAST:event_elimMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        jd_tablaAdmin.pack();
+        jd_tablaAdmin.setModal(true);
+        jd_tablaAdmin.setLocationRelativeTo(this);
+        jd_tablaAdmin.setVisible(true);
+
+
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void cb_artistasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_artistasItemStateChanged
+        // TODO add your handling code here:
+
+        adminUsuario l = new adminUsuario("./Usuario.cbm");
+        l.cargarArchivo();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getlistaUsuarios().toArray());
+        cb_artistas.setModel(modelo);
+
+
+    }//GEN-LAST:event_cb_artistasItemStateChanged
+
+    private void cb_solItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_solItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_solItemStateChanged
+
+    private void cb_banItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_banItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_banItemStateChanged
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        adminUsuario ap = new adminUsuario("./Usuario.cbm");
+        ap.cargarArchivo();
+        ap.getlistaUsuarios().remove(cb_artistas.getSelectedIndex());
+        ap.escribirArchivo();
+
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(ap.getlistaUsuarios().toArray());
+        cb_artistas.setModel(modelo);
+        JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        jd_elimSol.pack();
+        jd_elimSol.setModal(true);
+        jd_elimSol.setLocationRelativeTo(this);
+        jd_elimSol.setVisible(true);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        jd_elimBan.pack();
+        jd_elimBan.setModal(true);
+        jd_elimBan.setLocationRelativeTo(this);
+        jd_elimBan.setVisible(true);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        adminSolista ap = new adminSolista("./Solista.cbm");
+
+        ap.cargarArchivo();
+        ap.getListaSolista().remove(cb_sol.getSelectedIndex());
+        ap.escribirArchivo();
+
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(ap.getListaSolista().toArray());
+        cb_sol.setModel(modelo);
+        JOptionPane.showMessageDialog(null, "Solista eliminado exitosamente");
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        adminBanda ap = new adminBanda("./Banda.cbm");
+        
+        ap.cargarArchivo();
+        ap.getListaBandas().remove(cb_ban.getSelectedIndex());
+        ap.escribirArchivo();
+
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(ap.getListaBandas().toArray());
+        cb_ban.setModel(modelo);
+        JOptionPane.showMessageDialog(null, "Solista eliminado exitosamente");
+    }//GEN-LAST:event_jButton10MouseClicked
 
     /**
      * @param args the command line arguments
@@ -147,11 +604,44 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_artistas;
+    private javax.swing.JComboBox<String> cb_ban;
+    private javax.swing.JComboBox<String> cb_sol;
+    private javax.swing.JButton elim;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton jb_crear;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JButton jb_login;
+    private javax.swing.JDialog jd_admin;
+    private javax.swing.JDialog jd_elimBan;
+    private javax.swing.JDialog jd_elimSol;
+    private javax.swing.JDialog jd_eliminar;
+    private javax.swing.JDialog jd_registrar;
+    private javax.swing.JDialog jd_tablaAdmin;
     private javax.swing.JLabel lb_foto;
     private javax.swing.JPasswordField pf_contra;
+    private javax.swing.JPasswordField pf_contrasena;
+    private javax.swing.JTextField tf_display;
     private javax.swing.JTextField tf_userL;
+    private javax.swing.JTextField tf_username;
     // End of variables declaration//GEN-END:variables
+    String genero;
+    int edad;
+    int integrantes;
+    String admin = "leobanegas";
+    String admincon = "99";
 }

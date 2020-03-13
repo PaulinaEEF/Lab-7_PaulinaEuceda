@@ -1,20 +1,19 @@
 package lab7_paulinaeuceda;
 
+import java.io.*;
 import java.util.ArrayList;
 
-public class Artista {
+public class Artista implements Serializable{
     private String usuario, contrasena, nombre;
-    private String genero;
-    private ArrayList<Cancion> listaCanciones = new ArrayList();
+    
 
     public Artista() {
     }
 
-    public Artista(String usuario, String contrasena, String nombre, String genero) {
+    public Artista(String usuario, String contrasena, String nombre) {
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.nombre = nombre;
-        this.genero = genero;
     }
 
     
@@ -43,25 +42,10 @@ public class Artista {
         this.nombre = nombre;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public ArrayList<Cancion> getListaCanciones() {
-        return listaCanciones;
-    }
-
-    public void setListaCanciones(ArrayList<Cancion> listaCanciones) {
-        this.listaCanciones = listaCanciones;
-    }
 
     @Override
     public String toString() {
-        return "Artista{" + "usuario=" + usuario + ", contrasena=" + contrasena + ", nombre=" + nombre + ", genero=" + genero + ", listaCanciones=" + listaCanciones + '}';
+        return nombre;
     }
     
     

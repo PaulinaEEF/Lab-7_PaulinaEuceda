@@ -4,14 +4,33 @@ package lab7_paulinaeuceda;
 import java.util.ArrayList;
 
 public class Solista extends Artista{
+    private String genero;
+    private ArrayList<Cancion> listaCanciones = new ArrayList();
     private int edad;
 
     public Solista() {
     }
 
-    public Solista(int edad, String usuario, String contrasena, String nombre, String genero) {
-        super(usuario, contrasena, nombre, genero);
+    public Solista(String genero, int edad, String usuario, String contrasena, String nombre) {
+        super(usuario, contrasena, nombre);
+        this.genero = genero;
         this.edad = edad;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public ArrayList<Cancion> getListaCanciones() {
+        return listaCanciones;
+    }
+
+    public void setListaCanciones(ArrayList<Cancion> listaCanciones) {
+        this.listaCanciones = listaCanciones;
     }
 
     
@@ -24,11 +43,13 @@ public class Solista extends Artista{
         this.edad = edad;
     }
 
-
     @Override
     public String toString() {
-        return "Solista{" + "edad=" + edad + '}';
+        return super.getNombre();
     }
+
+
+    
 
     
     
