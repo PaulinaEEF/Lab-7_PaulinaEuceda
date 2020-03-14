@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 /**
  *
@@ -21,7 +22,6 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        h = new Hilo(pb_registro);
 
         dc_fecha.setDate(new Date());
         adminUsuario l = new adminUsuario("./Usuario.cbm");
@@ -606,12 +606,12 @@ public class Main extends javax.swing.JFrame {
         l.escribirArchivo();
 
         DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getListaSolista().toArray());
-        cb_ban.setModel(modelo);
-        
+        cb_sol.setModel(modelo);
+
+        h = new Hilo(pb_registro);
+
         h.setTiempo(5);
         h.start();
-        h.setAvanzar(false);
-        h.setVive(false);
 
         JOptionPane.showMessageDialog(null, "Solista creado con exito");
 
@@ -646,11 +646,11 @@ public class Main extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getListaBandas().toArray());
         cb_sol.setModel(modelo);
-        
+
+        h = new Hilo(pb_registro);
+
         h.setTiempo(5);
         h.start();
-        h.setAvanzar(false);
-        h.setVive(false);
 
         JOptionPane.showMessageDialog(null, "Banda creado con exito");
 
@@ -674,11 +674,11 @@ public class Main extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getlistaUsuarios().toArray());
         cb_artistas.setModel(modelo);
-        
+
+        h = new Hilo(pb_registro);
+
         h.setTiempo(5);
         h.start();
-        h.setAvanzar(false);
-        h.setVive(false);
 
         JOptionPane.showMessageDialog(null, "Usuario creado con exito");
 
@@ -821,10 +821,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         canciones.add(((Cancion) cb_canciones.getSelectedItem()));
+        h = new Hilo(pb_cancion);
+
         h.setTiempo(3);
         h.start();
-        h.setAvanzar(false);
-        h.setVive(false);
     }//GEN-LAST:event_jButton14MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
@@ -864,11 +864,13 @@ public class Main extends javax.swing.JFrame {
 
         int numEvento = eventos.size() - 1;
         eventos.get(numEvento).setListaCancion(canciones);
+                h = new Hilo(pb_evento);
+
         h.setTiempo(8);
         h.start();
         JOptionPane.showMessageDialog(null, "Se creo con exito");
-        h.setAvanzar(false);
-        h.setVive(false);
+
+        
 
     }//GEN-LAST:event_jButton15MouseClicked
 

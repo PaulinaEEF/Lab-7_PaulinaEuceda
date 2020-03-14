@@ -54,6 +54,7 @@ public class Hilo extends Thread {
 
             }
         }
+                progBar.setValue(0);
 
     }
 
