@@ -6,6 +6,7 @@
 package lab7_paulinaeuceda;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -20,6 +21,9 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        h = new Hilo(pb_registro);
+
+        dc_fecha.setDate(new Date());
         adminUsuario l = new adminUsuario("./Usuario.cbm");
         l.cargarArchivo();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getlistaUsuarios().toArray());
@@ -56,6 +60,7 @@ public class Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        pb_registro = new javax.swing.JProgressBar();
         jLabel7 = new javax.swing.JLabel();
         jd_admin = new javax.swing.JDialog();
         jButton4 = new javax.swing.JButton();
@@ -64,6 +69,8 @@ public class Main extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jd_tablaAdmin = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jd_eliminar = new javax.swing.JDialog();
         jButton8 = new javax.swing.JButton();
         cb_artistas = new javax.swing.JComboBox<>();
@@ -73,6 +80,36 @@ public class Main extends javax.swing.JFrame {
         jd_elimBan = new javax.swing.JDialog();
         jButton10 = new javax.swing.JButton();
         cb_ban = new javax.swing.JComboBox<>();
+        jd_artista = new javax.swing.JDialog();
+        jButton7 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jd_evento = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        tf_ciudad = new javax.swing.JTextField();
+        jp_personas = new javax.swing.JSpinner();
+        dc_fecha = new com.toedter.calendar.JDateChooser();
+        tf_lugar = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        pb_evento = new javax.swing.JProgressBar();
+        jLabel11 = new javax.swing.JLabel();
+        jd_cancion = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        tf_nomCan = new javax.swing.JTextField();
+        jp_segundos = new javax.swing.JSpinner();
+        jButton12 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jd_agregarC = new javax.swing.JDialog();
+        cb_canciones = new javax.swing.JComboBox<>();
+        jButton14 = new javax.swing.JButton();
+        pb_cancion = new javax.swing.JProgressBar();
+        jLabel17 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         tf_userL = new javax.swing.JTextField();
         pf_contra = new javax.swing.JPasswordField();
@@ -128,6 +165,9 @@ public class Main extends javax.swing.JFrame {
         });
         jd_registrar.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 120, 40));
 
+        pb_registro.setMaximum(5);
+        jd_registrar.getContentPane().add(pb_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 320, 20));
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/papers.co-se68-blurry-background-sunrise-gradation-blur-40-wallpaper.jpg"))); // NOI18N
         jd_registrar.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
@@ -168,15 +208,39 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-blurry-background-1636594.jpg"))); // NOI18N
         jd_admin.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 370));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Accion", "Tiempo", "Persona"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout jd_tablaAdminLayout = new javax.swing.GroupLayout(jd_tablaAdmin.getContentPane());
         jd_tablaAdmin.getContentPane().setLayout(jd_tablaAdminLayout);
         jd_tablaAdminLayout.setHorizontalGroup(
             jd_tablaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_tablaAdminLayout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jd_tablaAdminLayout.setVerticalGroup(
             jd_tablaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_tablaAdminLayout.createSequentialGroup()
+                .addContainerGap(83, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
         );
 
         jButton8.setText("Eliminar");
@@ -290,6 +354,129 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(111, Short.MAX_VALUE))
         );
 
+        jButton7.setText("Crear Cancion");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        jButton11.setText("Crear Evento");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_artistaLayout = new javax.swing.GroupLayout(jd_artista.getContentPane());
+        jd_artista.getContentPane().setLayout(jd_artistaLayout);
+        jd_artistaLayout.setHorizontalGroup(
+            jd_artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_artistaLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jButton7)
+                .addGap(81, 81, 81)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
+        );
+        jd_artistaLayout.setVerticalGroup(
+            jd_artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_artistaLayout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addGroup(jd_artistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton11))
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+
+        jd_evento.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setText("Ciudad");
+        jd_evento.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+
+        jLabel13.setText("Lugar");
+        jd_evento.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+
+        jLabel14.setText("Max. Personas");
+        jd_evento.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+
+        jLabel15.setText("Canciones");
+        jd_evento.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
+
+        jLabel16.setText("Fecha");
+        jd_evento.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        jd_evento.getContentPane().add(tf_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 110, 30));
+
+        jp_personas.setModel(new javax.swing.SpinnerNumberModel(25, 1, null, 1));
+        jd_evento.getContentPane().add(jp_personas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 80, 30));
+        jd_evento.getContentPane().add(dc_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        jd_evento.getContentPane().add(tf_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 110, 30));
+
+        jButton13.setText("Añadir Canciones");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+        jd_evento.getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 160, 30));
+
+        jButton15.setText("Crear Evento");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton15MouseClicked(evt);
+            }
+        });
+        jd_evento.getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+
+        pb_evento.setMaximum(8);
+        jd_evento.getContentPane().add(pb_evento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 320, 20));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/free-blurry-background-1636594.jpg"))); // NOI18N
+        jd_evento.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 369));
+
+        jd_cancion.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Nombre");
+        jd_cancion.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+
+        jLabel8.setText("Segundos");
+        jd_cancion.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+        jd_cancion.getContentPane().add(tf_nomCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 150, 30));
+
+        jp_segundos.setModel(new javax.swing.SpinnerNumberModel(60, 45, null, 1));
+        jd_cancion.getContentPane().add(jp_segundos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 80, 20));
+
+        jButton12.setText("Crear");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+        jd_cancion.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 90, 30));
+
+        jLabel10.setText("Crear Canciones");
+        jd_cancion.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/papers.co-se68-blurry-background-sunrise-gradation-blur-40-wallpaper.jpg"))); // NOI18N
+        jd_cancion.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 340));
+
+        jd_agregarC.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cb_canciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jd_agregarC.getContentPane().add(cb_canciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 110, 40));
+
+        jButton14.setText("Agregar");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
+        jd_agregarC.getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
+
+        pb_cancion.setMaximum(3);
+        jd_agregarC.getContentPane().add(pb_cancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 320, 20));
+        jd_agregarC.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 340));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -340,11 +527,14 @@ public class Main extends javax.swing.JFrame {
 
             for (int i = 0; i < band.size(); i++) {
                 if (((Banda) band.get(i)).getUsuario().equals(tf_userL.getText()) && ((Banda) band.get(i)).getContrasena().equals(pf_contra.getText())) {
+
                     JOptionPane.showMessageDialog(null, "Se inició sesión con éxito");
-//                jd_chat.pack();
-//                jd_chat.setModal(true);
-//                jd_chat.setLocationRelativeTo(this);
-//                jd_chat.setVisible(true);
+                    quien = "banda";
+                    pos = i;
+                    jd_artista.pack();
+                    jd_artista.setModal(true);
+                    jd_artista.setLocationRelativeTo(this);
+                    jd_artista.setVisible(true);
                     flag = false;
                     break;
                 }
@@ -352,18 +542,23 @@ public class Main extends javax.swing.JFrame {
 
             for (int i = 0; i < soli.size(); i++) {
                 if (((Solista) soli.get(i)).getUsuario().equals(tf_userL.getText()) && ((Solista) soli.get(i)).getContrasena().equals(pf_contra.getText())) {
+
                     JOptionPane.showMessageDialog(null, "Se inició sesión con éxito");
-//                jd_chat.pack();
-//                jd_chat.setModal(true);
-//                jd_chat.setLocationRelativeTo(this);
-//                jd_chat.setVisible(true);
+                    quien = "solista";
+                    pos = i;
+                    jd_artista.pack();
+                    jd_artista.setModal(true);
+                    jd_artista.setLocationRelativeTo(this);
+                    jd_artista.setVisible(true);
                     flag = false;
                     break;
                 }
             }
             for (int i = 0; i < usu.size(); i++) {
                 if (((Usuario) usu.get(i)).getUsuario().equals(tf_userL.getText()) && ((Usuario) usu.get(i)).getContrasena().equals(pf_contra.getText())) {
+
                     JOptionPane.showMessageDialog(null, "Se inició sesión con éxito");
+
 //                jd_chat.pack();
 //                jd_chat.setModal(true);
 //                jd_chat.setLocationRelativeTo(this);
@@ -412,6 +607,11 @@ public class Main extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getListaSolista().toArray());
         cb_ban.setModel(modelo);
+        
+        h.setTiempo(5);
+        h.start();
+        h.setAvanzar(false);
+        h.setVive(false);
 
         JOptionPane.showMessageDialog(null, "Solista creado con exito");
 
@@ -446,6 +646,11 @@ public class Main extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getListaBandas().toArray());
         cb_sol.setModel(modelo);
+        
+        h.setTiempo(5);
+        h.start();
+        h.setAvanzar(false);
+        h.setVive(false);
 
         JOptionPane.showMessageDialog(null, "Banda creado con exito");
 
@@ -469,6 +674,11 @@ public class Main extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo = new DefaultComboBoxModel(l.getlistaUsuarios().toArray());
         cb_artistas.setModel(modelo);
+        
+        h.setTiempo(5);
+        h.start();
+        h.setAvanzar(false);
+        h.setVive(false);
 
         JOptionPane.showMessageDialog(null, "Usuario creado con exito");
 
@@ -558,7 +768,7 @@ public class Main extends javax.swing.JFrame {
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         // TODO add your handling code here:
         adminBanda ap = new adminBanda("./Banda.cbm");
-        
+
         ap.cargarArchivo();
         ap.getListaBandas().remove(cb_ban.getSelectedIndex());
         ap.escribirArchivo();
@@ -567,6 +777,100 @@ public class Main extends javax.swing.JFrame {
         cb_ban.setModel(modelo);
         JOptionPane.showMessageDialog(null, "Solista eliminado exitosamente");
     }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+        if (quien.equals("banda")) {
+
+            adminBanda ban = new adminBanda("./Banda.cbm");
+            ban.cargarArchivo();
+            String dura = jp_segundos.getValue().toString();
+            int duracion = Integer.parseInt(dura);
+            ban.getListaBandas().get(pos).getListaCanciones().add(new Cancion(tf_nomCan.getText(), duracion));
+            ban.escribirArchivo();
+            JOptionPane.showMessageDialog(null, "Se creo con exito");
+        } else if (quien.equals("solista")) {
+            adminSolista sol = new adminSolista("./Solista.cbm");
+            sol.cargarArchivo();
+            String dura = jp_segundos.getValue().toString();
+            int duracion = Integer.parseInt(dura);
+            sol.getListaSolista().get(pos).getListaCanciones().add(new Cancion(tf_nomCan.getText(), duracion));
+            sol.escribirArchivo();
+            JOptionPane.showMessageDialog(null, "Se creo con exito");
+        }
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        jd_cancion.pack();
+        jd_cancion.setModal(true);
+        jd_cancion.setLocationRelativeTo(this);
+        jd_cancion.setVisible(true);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+        canciones = new ArrayList();
+        jd_evento.pack();
+        jd_evento.setModal(true);
+        jd_evento.setLocationRelativeTo(this);
+        jd_evento.setVisible(true);
+    }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        // TODO add your handling code here:
+
+        canciones.add(((Cancion) cb_canciones.getSelectedItem()));
+        h.setTiempo(3);
+        h.start();
+        h.setAvanzar(false);
+        h.setVive(false);
+    }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+        if (quien.equals("banda")) {
+
+            adminBanda ban = new adminBanda("./Banda.cbm");
+            ban.cargarArchivo();
+
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel(ban.getListaBandas().get(pos).getListaCanciones().toArray());
+            cb_canciones.setModel(modelo);
+
+        } else if (quien.equals("solista")) {
+            adminSolista sol = new adminSolista("./Solista.cbm");
+            sol.cargarArchivo();
+
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel(sol.getListaSolista().get(pos).getListaCanciones().toArray());
+            cb_canciones.setModel(modelo);
+
+        }
+
+        jd_agregarC.pack();
+        jd_agregarC.setModal(true);
+        jd_agregarC.setLocationRelativeTo(this);
+        jd_agregarC.setVisible(true);
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+        // TODO add your handling code here:
+        Date fe = dc_fecha.getDate();
+        String ciudad = tf_ciudad.getText();
+        String lugar = tf_lugar.getText();
+        String perso = jp_personas.getValue().toString();
+        int personas = Integer.parseInt(perso);
+
+        eventos.add(new Evento(fe, ciudad, lugar, personas));
+
+        int numEvento = eventos.size() - 1;
+        eventos.get(numEvento).setListaCancion(canciones);
+        h.setTiempo(8);
+        h.start();
+        JOptionPane.showMessageDialog(null, "Se creo con exito");
+        h.setAvanzar(false);
+        h.setVive(false);
+
+    }//GEN-LAST:event_jButton15MouseClicked
 
     /**
      * @param args the command line arguments
@@ -606,39 +910,77 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_artistas;
     private javax.swing.JComboBox<String> cb_ban;
+    private javax.swing.JComboBox<String> cb_canciones;
     private javax.swing.JComboBox<String> cb_sol;
+    private com.toedter.calendar.JDateChooser dc_fecha;
     private javax.swing.JButton elim;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_crear;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JButton jb_login;
     private javax.swing.JDialog jd_admin;
+    private javax.swing.JDialog jd_agregarC;
+    private javax.swing.JDialog jd_artista;
+    private javax.swing.JDialog jd_cancion;
     private javax.swing.JDialog jd_elimBan;
     private javax.swing.JDialog jd_elimSol;
     private javax.swing.JDialog jd_eliminar;
+    private javax.swing.JDialog jd_evento;
     private javax.swing.JDialog jd_registrar;
     private javax.swing.JDialog jd_tablaAdmin;
+    private javax.swing.JSpinner jp_personas;
+    private javax.swing.JSpinner jp_segundos;
     private javax.swing.JLabel lb_foto;
+    private javax.swing.JProgressBar pb_cancion;
+    private javax.swing.JProgressBar pb_evento;
+    private javax.swing.JProgressBar pb_registro;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JPasswordField pf_contrasena;
+    private javax.swing.JTextField tf_ciudad;
     private javax.swing.JTextField tf_display;
+    private javax.swing.JTextField tf_lugar;
+    private javax.swing.JTextField tf_nomCan;
     private javax.swing.JTextField tf_userL;
     private javax.swing.JTextField tf_username;
     // End of variables declaration//GEN-END:variables
+    Hilo h;
+    ArrayList<Evento> eventos = new ArrayList();
+    ArrayList<Cancion> canciones;
+    String quien;
+    int pos;
     String genero;
     int edad;
     int integrantes;

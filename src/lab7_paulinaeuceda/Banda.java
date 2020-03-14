@@ -42,6 +42,8 @@ public class Banda extends Artista{
     public void setListaCanciones(ArrayList<Cancion> listaCanciones) {
         this.listaCanciones = listaCanciones;
     }
+    
+    
 
     @Override
     public String toString() {

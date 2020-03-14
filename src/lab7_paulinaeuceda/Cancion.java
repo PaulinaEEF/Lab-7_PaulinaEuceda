@@ -1,8 +1,10 @@
 
 package lab7_paulinaeuceda;
 
+import java.io.Serializable;
 
-public class Cancion {
+
+public class Cancion implements Serializable{
     private String nombre;
     private int tiempo;
 
@@ -29,7 +31,7 @@ public class Cancion {
 
     @Override
     public String toString() {
-        return "Cancion{" + "nombre=" + nombre + ", tiempo=" + tiempo + '}';
+        return nombre;
     }
     
     
